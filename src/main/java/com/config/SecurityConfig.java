@@ -9,17 +9,18 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
+public class SecurityConfig extends WebSecurityConfigurerAdapter
+{
 	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception
+    {
 		auth.inMemoryAuthentication().withUser("mkyong").password("123456").roles("USER");
 	}
 
 	//.csrf() is optional, enabled by default, if using WebSecurityConfigurerAdapter constructor
 	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-
+	protected void configure(HttpSecurity http) throws Exception
+	{
 		http.authorizeRequests()
 			.antMatchers("/admin/**").access("hasRole('ROLE_USER')")
 			.and()
@@ -29,7 +30,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 				.logout().logoutSuccessUrl("/login?logout")
 			.and()
-				.csrf(); 
-		
+				.csrf();
 	}
 }
