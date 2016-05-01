@@ -1,0 +1,79 @@
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'war'
+apply plugin: 'org.akhikhl.gretty'
+apply plugin: 'findbugs'
+apply plugin: 'pmd'
+
+sourceCompatibility = 1.8
+
+buildscript
+{
+    repositories
+    {
+        mavenLocal()
+        mavenCentral()
+
+    }
+
+    dependencies
+    {
+        classpath 'org.akhikhl.gretty:gretty:+'
+    }
+}
+
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies
+{
+    //Spring dependencies
+    compile 'org.springframework:spring-context-support:4.1.4.RELEASE'
+    compile 'org.springframework:spring-beans:3.0.5.RELEASE'
+    compile 'org.springframework:spring-core:4.1.6.RELEASE'
+    compile 'org.springframework:spring-web:4.1.6.RELEASE'
+    compile 'org.springframework:spring-webmvc:4.1.6.RELEASE'
+    compile 'org.springframework.security:spring-security-web:4.0.3.RELEASE'
+    compile 'org.springframework.security:spring-security-config:4.0.3.RELEASE'
+
+    //Spring data dependencies
+    compile 'org.springframework.data:spring-data-jpa:1.9.0.RELEASE'
+    compile 'org.springframework:spring-jdbc:4.2.1.RELEASE'
+    compile 'org.springframework:spring-orm:4.1.6.RELEASE'
+
+    //Database dependencies
+
+    //Validation
+    compile 'javax.validation:validation-api:1.1.0.Final'
+    compile 'org.hibernate:hibernate-validator:5.2.2.Final'
+
+    //Java servlet dependencies
+    compile 'javax.servlet:javax.servlet-api:3.0.1'
+    compile 'javax.servlet:jstl:1.2'
+
+    //Hibernate dependencies
+    compile 'org.hibernate:hibernate-core:4.3.8.Final'
+    compile 'org.hibernate:hibernate-entitymanager:4.3.8.Final'
+
+    //Lombok dependencies
+    compile 'org.projectlombok:lombok:1.14.8'
+
+    //Tomcat dependencies
+    compile 'org.apache.tomcat:tomcat-dbcp:8.0.26'
+    compile 'commons-dbcp:commons-dbcp:1.2.2'
+
+    //Logging dependencies
+    compile 'log4j:log4j:1.2.17'
+    compile 'org.slf4j:slf4j-api:1.7.5'
+    compile 'log4j:apache-log4j-extras:1.2.17'
+    compile 'cglib:cglib:2.2.2'
+
+    //Google Preconditions
+    compile 'com.google.guava:guava:19.0'
+}
