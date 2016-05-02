@@ -31,7 +31,6 @@ public class AccountResource
         model.setViewName("admin");
 
         return model;
-
     }
 
     //Spring Security see this :
@@ -43,12 +42,12 @@ public class AccountResource
         ModelAndView model = new ModelAndView();
         if (error != null)
         {
-            model.addObject("error", "Invalid username and password!");
+            model.addObject("error", "Usuario y/o contraseña inválido.");
         }
 
         if (logout != null)
         {
-            model.addObject("msg", "You've been logged out successfully.");
+            model.addObject("msg", "Has salido de la aplicación exitosamente.");
         }
         model.setViewName("login");
 

@@ -1,7 +1,7 @@
 package com.config.core;
 
-import com.config.AppConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import com.config.AppConfig;
 
 public class SpringMvcInitializer
 		extends AbstractAnnotationConfigDispatcherServletInitializer

@@ -12,8 +12,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfig extends WebSecurityConfigurerAdapter
 {
 	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception
-    {
+	public void configureGlobal(
+			AuthenticationManagerBuilder auth) throws Exception
+	{
 		auth.inMemoryAuthentication().withUser("mkyong").password("123456").roles("USER");
 	}
 
@@ -25,8 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 			.antMatchers("/admin/**").access("hasRole('ROLE_USER')")
 			.and()
 				.formLogin().loginPage("/login").failureUrl("/login?error")
-					.usernameParameter("username").passwordParameter("password")
-				
+                .usernameParameter("username").passwordParameter("password")
 			.and()
 				.logout().logoutSuccessUrl("/login?logout")
 			.and()
